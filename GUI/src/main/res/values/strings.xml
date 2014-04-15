@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">QwikServe</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_order_main">OrderMain</string>
+    <string name="qblogoa">qblogo</string>
+    <string name="welcomestring">welcomestring</string>
+    <string name="menustring">menu</string>
+    <string name="title_activity_add_main">AddMain</string>
+    <string name="title_activity_add_burger">AddBurger</string>
+    <string name="title_activity_add_sides">AddSides</string>
+    <string name="title_activity_review_order">ReviewOrder</string>
+    <string name="selectmeatstring">selectmeatstring</string>
+    <string name="selectbunstring">selectbunstring</string>
+    <string name="selectsizestring">selectsizestring</string>
+    <string name="title_activity_add_topping">AddTopping</string>
+    <string name="selectopsstring">selectopsstring</string>
+    <string name="title_activity_final_order">FinalOrder</string>
+    <string name="nameorderstring">Name for order</string>
+    <string name="enternstring">Name</string>
+    <string name="anem">anem</string>
+
+</resources>

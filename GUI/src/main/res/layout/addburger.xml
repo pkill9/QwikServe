@@ -1,0 +1,171 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}">
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:visibility="visible"
+        android:focusable="false"
+        android:id="@+id/radiogroup1"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton1"
+            android:checked="true"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/chickentxt" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton2"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/beeftxt" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton3"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/turkeytxt" />
+    </RadioGroup>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:background="@drawable/selectmeat"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/radiogroup1"
+        android:layout_alignEnd="@+id/radiogroup1"
+        android:contentDescription="@string/selectmeatstring" />
+
+
+
+
+
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:visibility="visible"
+        android:focusable="false"
+        android:id="@+id/radiogroup2"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton4"
+            android:checked="true"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/plainwhitetext" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton5"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/potatotxt" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton6"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/pretzeltext" />
+    </RadioGroup>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView5"
+        android:background="@drawable/selectbun"
+        android:layout_below="@+id/radiogroup1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/selectbunstring" />
+
+
+
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:visibility="visible"
+        android:focusable="false"
+        android:id="@+id/radiogroup3"
+        android:layout_below="@+id/imageView6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton7"
+            android:checked="true"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/singletext" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton8"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/doubletext" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/radioButton9"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@drawable/tripletext" />
+    </RadioGroup>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView6"
+        android:background="@drawable/selectsize"
+        android:layout_below="@+id/radiogroup2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/selectsizestring" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:enabled="true"
+        android:clickable="true"
+        android:layout_below="@+id/radiogroup3"
+        android:background="@drawable/continuebutton" />
+
+
+</RelativeLayout>

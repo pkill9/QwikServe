@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}">
+
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:id="@+id/button4"
+        android:visibility="visible"
+        android:enabled="true"
+        android:clickable="true"
+        android:background="@drawable/addcombo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:id="@+id/button5"
+        android:visibility="visible"
+        android:enabled="true"
+        android:clickable="true"
+        android:background="@drawable/addburger"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp" />
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:id="@+id/button6"
+        android:visibility="visible"
+        android:enabled="true"
+        android:clickable="true"
+        android:background="@drawable/addsides"
+        android:layout_below="@+id/button4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp" />
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:id="@+id/button7"
+        android:visibility="visible"
+        android:enabled="true"
+        android:clickable="true"
+        android:background="@drawable/adddrinkso"
+        android:layout_below="@+id/button5"
+        android:layout_toRightOf="@+id/button4"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8"
+        android:visibility="visible"
+        android:enabled="true"
+        android:clickable="true"
+        android:background="@drawable/revieworder"
+        android:layout_below="@+id/button6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>
