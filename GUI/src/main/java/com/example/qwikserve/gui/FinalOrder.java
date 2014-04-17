@@ -46,7 +46,8 @@ public class FinalOrder extends Activity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(), "Thank you for your order, a waiter will be with you shortly.", Toast.LENGTH_SHORT).show();
 
 
-            ref.push().setValue(order);
+            ref.child(order.getID()).setValue(order);
+
             /*
                 Here is where you have to throw the object to wherever you need to throw it to via an intent
                 Intent intent = new Intent(ReviewOrder.this,<yourclass>.class);

@@ -5,13 +5,17 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+import android.view.View;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+
 
 
 public class CookScreen extends Activity {
@@ -35,6 +39,22 @@ public class CookScreen extends Activity {
         super.onStart();
 
         final GridView gridView = (GridView) findViewById(R.id.grid);
+        gridView.setLongClickable(true);
+
+        gridView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,int position, long arg3) {
+
+                Order a = (Order)orderListAdapter.getItem(position);
+                Toast.makeText(CookScreen.this,  a.getID(), Toast.LENGTH_SHORT).show();
+                sendMessage(a);
+                Firebase refDEL = refIN.child(a.getID());
+                removeItem(refDEL);
+
+                return true;
+            }
+        });
+
         orderListAdapter = new OrderListAdapter(refIN.limit(50),this, R.layout.order_text);
         gridView.setAdapter(orderListAdapter);
         orderListAdapter.registerDataSetObserver(new DataSetObserver() {
@@ -44,6 +64,7 @@ public class CookScreen extends Activity {
                 gridView.setSelection(orderListAdapter.getCount()-1);
             }
         });
+
         connectedListener = refIN.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -60,6 +81,10 @@ public class CookScreen extends Activity {
             }
         });
     }
+    public void removeItem(Firebase ref){
+        ref.removeValue();
+    }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -71,7 +96,7 @@ public class CookScreen extends Activity {
             // Create our 'model', a Chat object
             Order orderF = finishedOrder;
             // Create a new, auto-generated child of that chat location, and save our chat data there
-            refOUT.push().setValue(orderF);
+            refOUT.child(orderF.getID()).setValue(orderF);
     }
 
     @Override

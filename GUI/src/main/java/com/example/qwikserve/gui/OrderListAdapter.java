@@ -28,9 +28,12 @@ public class OrderListAdapter extends FirebaseListAdapter<Order> {
         // Map a Order object to an entry in our GridView
         String burgers = order.getBurgersText();
         String sides = order.getSidesText();
+        String id = order.getID();
 
         TextView burgerText = (TextView) view.findViewById(R.id.burgersTEXT);
         TextView sideText = (TextView) view.findViewById(R.id.sidesTEXT);
+        TextView orderId = (TextView) view.findViewById(R.id.orderid);
+        orderId.setText(id);
         burgerText.setText(burgers);
         sideText.setText(sides);
     }

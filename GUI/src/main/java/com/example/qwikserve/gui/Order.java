@@ -3,11 +3,13 @@ package com.example.qwikserve.gui;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.ListIterator;
+import java.util.Random;
 
 public class Order implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
+    private int id;
 	private String name;
 	private int numDrinks;
     private double cost;
@@ -15,10 +17,10 @@ public class Order implements Serializable {
 	private ArrayList<String> burgers;
 	private ArrayList<String> toppings;
 	private boolean isCombo;
-
+    private Random randomGenerator = new Random();
 	
 	public Order() {		
-		
+		this.id = randomGenerator.nextInt(999999);
 		this.numDrinks =0;
         this.cost =0;
 		this.isCombo = false;
@@ -48,6 +50,10 @@ public class Order implements Serializable {
 	public int getNumDrinks() {
 		return numDrinks;
 	}
+
+    public String getID(){
+        return Integer.toString(id);
+    }
 
 	public void addDrink() {
 		this.numDrinks++;
@@ -126,7 +132,8 @@ public class Order implements Serializable {
         return text;
 
     }
-    public String getSidesText(){
+
+    protected String getSidesText(){
         String text ="";
 
         for(String s: sides)
@@ -139,9 +146,12 @@ public class Order implements Serializable {
     }
     public String toString()
     {
-        String text = getBurgersText();
+        String text = "Order ID: ";
+        text =text.concat(""+this.getID()+"\n");
 
-        text = text.concat("\nSides: "+getSidesText());
+        text =text.concat(""+this.getBurgersText());
+
+        text = text.concat("\nSides: "+this.getSidesText());
 
         text = text.concat(("\nNumber of fountain drinks: "+this.getNumDrinks()+"\n"));
         return text;
