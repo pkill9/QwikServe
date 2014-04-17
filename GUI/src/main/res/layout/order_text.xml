@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:text="Burger(s):"
         android:id="@+id/title1"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -24,7 +26,9 @@
         android:layout_height="wrap_content"
         android:text="Side(s):"
         android:id="@+id/title2"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp" />
 
     <TextView
         android:layout_width="fill_parent"

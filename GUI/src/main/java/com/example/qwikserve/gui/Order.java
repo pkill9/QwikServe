@@ -6,11 +6,7 @@ import java.util.ListIterator;
 
 public class Order implements Serializable {
 
-	 
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private int numDrinks;
@@ -91,7 +87,7 @@ public class Order implements Serializable {
 		this.isCombo = isCombo;
 	}
 
-    public String getBurgersText() {
+    protected String getBurgersText() {
         String text ="";
         int j = 0;
         for(int i=0; i<burgers.size()-1;i+=3)
@@ -99,15 +95,15 @@ public class Order implements Serializable {
 
             text=text.concat(("Burger "+((i/3)+1)+":\n"));
 
-            text=text.concat(" Meat: ");
+            text=text.concat("Meat: ");
             text=text.concat(burgers.get(i+2));
             text=text.concat(" - "); // space
             text=text.concat(burgers.get(i));
 
-            text=text.concat("  Bun: "); // space
+            text=text.concat("\nBun: "); // space
             text=text.concat(burgers.get(i+1));
 
-            text=text.concat("  Toppings:");
+            text=text.concat("\nToppings:\n");
 
             for(j=j;j<100000;j++)// go on till break
             {
@@ -116,9 +112,9 @@ public class Order implements Serializable {
                     j++;
                     break;
                 }
-                text = text.concat(" ");
-                text = text.concat(toppings.get(j));
 
+                text = text.concat(toppings.get(j));
+                text = text.concat(" ");
 
             }//end inner for
 
@@ -133,11 +129,10 @@ public class Order implements Serializable {
     public String getSidesText(){
         String text ="";
 
-        text = text.concat(("\n"+"Sides: "));
         for(String s: sides)
         {
             text=text.concat(s);
-            text=text.concat(", ");
+            text=text.concat(" ");
         }
         return text;
 
@@ -146,7 +141,7 @@ public class Order implements Serializable {
     {
         String text = getBurgersText();
 
-        text = text.concat("\n"+getSidesText());
+        text = text.concat("\nSides: "+getSidesText());
 
         text = text.concat(("\nNumber of fountain drinks: "+this.getNumDrinks()+"\n"));
         return text;
