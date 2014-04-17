@@ -1,12 +1,19 @@
 package com.example.qwikserve.gui;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.ValueEventListener;
 
 
-public class CookScreen extends Activity {
+public class CookScreen extends ListActivity {
+
+    private static final String FIREBASE_URL = "https://qwickserve.firebaseio.com/";
+    private ValueEventListener connectedListener;
+    private OrderListAdapter chatListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

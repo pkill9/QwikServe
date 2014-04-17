@@ -91,47 +91,63 @@ public class Order implements Serializable {
 		this.isCombo = isCombo;
 	}
 
-    public String toString()
-    {
-       int j=0;//test
-       String text =" ";
-       for(int i=0; i<burgers.size()-1;i+=3)
-       {
+    public String getBurgersText() {
+        String text ="";
+        int j = 0;
+        for(int i=0; i<burgers.size()-1;i+=3)
+        {
 
-            text=text.concat(("Burger "+((i/3)+1)+": "));
+            text=text.concat(("Burger "+((i/3)+1)+":\n"));
+
+            text=text.concat(" Meat: ");
+            text=text.concat(burgers.get(i+2));
+            text=text.concat(" - "); // space
             text=text.concat(burgers.get(i));
-            text=text.concat(" "); // space
 
+            text=text.concat("  Bun: "); // space
             text=text.concat(burgers.get(i+1));
-            text=text.concat(" "); // space
 
-           text=text.concat(burgers.get(i+2));
-           text=text.concat(" "); // space
+            text=text.concat("  Toppings:");
 
-           text=text.concat("with: ");
-
-           for(j=j;j<100000;j++)// go on till break
-           {
+            for(j=j;j<100000;j++)// go on till break
+            {
                 if(toppings.get(j).compareTo("enditem")==0)
                 {//if it is the end of the toppings for this item
                     j++;
                     break;
                 }
-               text = text.concat(toppings.get(j));
-               text = text.concat(" ");
+                text = text.concat(" ");
+                text = text.concat(toppings.get(j));
 
-           }//end inner for
 
-           text = text.concat("\n");
+            }//end inner for
 
-       }// end outter for
+            text = text.concat("\n");
+
+        }// end outter for burger
+
+
+        return text;
+
+    }
+    public String getSidesText(){
+        String text ="";
 
         text = text.concat(("\n"+"Sides: "));
         for(String s: sides)
         {
             text=text.concat(s);
-            text=text.concat(" ");
+            text=text.concat(", ");
         }
+        return text;
+
+    }
+    public String toString()
+    {
+        String text = getBurgersText();
+
+        text = text.concat("\n"+getSidesText());
+
         text = text.concat(("\nNumber of fountain drinks: "+this.getNumDrinks()+"\n"));
         return text;
 
