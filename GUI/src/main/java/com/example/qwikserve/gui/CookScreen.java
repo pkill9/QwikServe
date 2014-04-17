@@ -1,26 +1,78 @@
 package com.example.qwikserve.gui;
 
-import android.app.ListActivity;
+import android.app.Activity;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.GridView;
+import android.widget.Toast;
+
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
 
-public class CookScreen extends ListActivity {
+public class CookScreen extends Activity {
 
+    private Firebase refIN;
+    private Firebase refOUT;
     private static final String FIREBASE_URL = "https://qwickserve.firebaseio.com/";
     private ValueEventListener connectedListener;
-    private OrderListAdapter chatListAdapter;
+    private OrderListAdapter orderListAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_screen);
+        refIN = new Firebase (FIREBASE_URL).child("cook");
+        refOUT = new Firebase (FIREBASE_URL).child("done");
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+
+        final GridView gridView = (GridView) findViewById(R.id.grid);
+        orderListAdapter = new OrderListAdapter(refIN.limit(50),this, R.layout.order_text);
+        gridView.setAdapter(orderListAdapter);
+        orderListAdapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                gridView.setSelection(orderListAdapter.getCount()-1);
+            }
+        });
+        connectedListener = refIN.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                boolean connected = (Boolean)dataSnapshot.getValue();
+                if (connected) {
+                    Toast.makeText(CookScreen.this, "Connected to Firebase Server", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CookScreen.this, "Disconnected from Firebase Server", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onCancelled(FirebaseError E) {
+                // No-op
+            }
+        });
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        refIN.getRoot().child(".info/connected").removeEventListener(connectedListener);
+        orderListAdapter.cleanup();
     }
 
+    private void sendMessage(Order finishedOrder) {
+            // Create our 'model', a Chat object
+            Order orderF = finishedOrder;
+            // Create a new, auto-generated child of that chat location, and save our chat data there
+            refOUT.push().setValue(orderF);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
