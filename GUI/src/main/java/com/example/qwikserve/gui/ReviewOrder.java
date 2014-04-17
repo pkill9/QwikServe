@@ -41,7 +41,7 @@ public class ReviewOrder extends Activity implements View.OnClickListener {
             startActivity(intent2);
             finish();
         }
-        else if(v.getId()==R.id.button13);
+        else if(v.getId()==R.id.button13)
         {// start the final ordering activity
             Intent intent3 = new Intent(ReviewOrder.this,FinalOrder.class);
             intent3.putExtra("com.example.qwikserve.gui.Order.class",order);
