@@ -31,9 +31,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         else if (v.getId()== R.id.button2)// chef module is clicked
         {
-            // take this into chef messaging activity or whatever
-            // i.e. make an intent pass it to CookActivity or w.e. its called
-            // and then finalize this activity  by calling finish()
+            Intent intent1 = new Intent(MainActivity.this , CookScreen.class);
+            startActivity(intent1);
+            finish();
         }
     }
 }

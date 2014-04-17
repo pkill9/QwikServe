@@ -37,6 +37,7 @@ public class FinalOrder extends Activity implements View.OnClickListener {
             order.setName(name.getText().toString()); // get name from user input add to order object
             // NOTE: the toString method of order does not include customer name or price just the order strings, can be easily added if needed
             Toast.makeText(getApplicationContext(), "Thank you for your order, a waiter will be with you shortly.", Toast.LENGTH_SHORT).show();
+
             /*
                 Here is where you have to throw the object to wherever you need to throw it to via an intent
                 Intent intent = new Intent(ReviewOrder.this,<yourclass>.class);

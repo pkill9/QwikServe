@@ -20,5 +20,7 @@
     <string name="nameorderstring">Name for order</string>
     <string name="enternstring">Name</string>
     <string name="anem">anem</string>
+    <string name="title_activity_cook_screen">Orders</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
